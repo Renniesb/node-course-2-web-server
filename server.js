@@ -45,6 +45,12 @@ app.get('/bad', (req,res)=>{
 		errorMessage: 'Bad link- Sorry'
 	});
 });
+app.get('/projects',(req,res)=>{
+	res.render('projects.hbs',{
+		pageTitle: "projects",
+		projectMessage: "These are your projects"
+	});
+});
 
 // app.use((req,res,next)=>{
 // 	res.render('maintanance.hbs');
