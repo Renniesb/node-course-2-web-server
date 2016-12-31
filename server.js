@@ -13,7 +13,7 @@ hbs.registerHelper('getCurrentYear', () =>{
 
 hbs.registerHelper('screamIt', (text)=>{
 	return text.toUpperCase();
-})
+});
 app.set('view engine', 'hbs');
 
 app.use(express.static(__dirname+'/public'));
@@ -32,10 +32,6 @@ app.use((req,res,next)=>{
 	next();
 });
 
-app.use((req,res,next)=>{
-	res.render('maintanance.hbs');
-});
-
 app.get('/', (req,res)=>{
 	res.render('home.hbs', {pageTitle: 'Home page', welcomeMessage: 'Welcome Earthlings!'});
 });
@@ -49,6 +45,10 @@ app.get('/bad', (req,res)=>{
 		errorMessage: 'Bad link- Sorry'
 	});
 });
+
+// app.use((req,res,next)=>{
+// 	res.render('maintanance.hbs');
+// });
 
 app.listen(port,()=>{
 	console.log(`Server is up on port ${port}`);
